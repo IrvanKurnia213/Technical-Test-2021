@@ -1,5 +1,21 @@
 # Loading
 library("readxl")
 # xlsx files
-raw_data <- read_excel("Raw Data.xlsx")
+raw_data <- read_xlsx("Raw Data.xlsx")
 raw_data
+# selecting relevant columns into new dataframe
+dataframe <- raw_data[, c(6, 7, 8, 9)]
+# calculating real value for GMVCigarettes and GMV
+dataframe$gmvcig <- (dataframe$GMV * dataframe$GMVcigar)
+dataframe$gmv2 <- (dataframe$GMV - dataframe$gmvcig)
+# calculating weighed data
+dataframe$wgmv <- (0.4 * dataframe$gmv2)
+dataframe$winvoice <- (0.25 * dataframe$Invoice)
+dataframe$wcustomer <- (0.25 * dataframe$Customer)
+dataframe$wgmvcig <- (0.1 * dataframe$gmvcig)
+# selecting all the weighed data
+wd <- dataframe[, c(7, 8, 9, 10)]
+# calculating total for Company GMV
+wd$comgmv <- (wd$wgmv + wd$winvoice + wd$wcustomer + wd$wgmvcig)
+# running correlation test on the dataframe
+cor(wd)

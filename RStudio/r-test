@@ -1,0 +1,3 @@
+aa <- data.frame(x = c(2, 4, 6), y = c(3, 5, 7))
+aa$z <- (aa$x + aa$y) - 2
+aa
