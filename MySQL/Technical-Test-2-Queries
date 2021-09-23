@@ -1,0 +1,16 @@
+WITH base_table AS
+(
+SELECT 
+    c.name AS Category_Name,
+    p.name AS Product_Name,
+    SUM(s.order_value) AS Product_Sales_Value,
+    AVG(s.order_value) OVER (PARTITION BY c.name) AS AVG_Per_Category
+FROM product p
+    LEFT JOIN category c ON p.category_id = c.id
+    LEFT JOIN sales_order s ON p.id = s.product_id
+WHERE s.trx_state = 'Delivered'
+GROUP BY 1,2
+)
+SELECT * 
+FROM base_table
+WHERE Product_Sales_Value < AVG_Per_Category

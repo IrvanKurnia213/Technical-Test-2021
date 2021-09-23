@@ -1,0 +1,16 @@
+USE technical_test;
+
+CREATE TABLE IF NOT EXISTS category (
+    `id` INT,
+    `name` VARCHAR(40) CHARACTER SET utf8
+);
+
+INSERT INTO 
+    category
+VALUES
+    (1,'Makanan Instan'),
+    (2,'Fresh'),
+    (3,'Minuman Ringan'),
+    (4,'Rokok'),
+    (5,'Bahan Dapur');
+    

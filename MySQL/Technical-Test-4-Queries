@@ -1,0 +1,9 @@
+select s.id, s.name 
+from 
+    (select product.id, product.name, sum(so.order_value) svalue 
+        from product
+        join sales_order so on so.product_id = product.id
+    group by product.id, product.name) s 
+    where s.svalue = (select max(so.order_value) maxsum 
+    from sales_order so where so.product_id = s.id and so.trx_state = 'Delivered')
+    limit 3

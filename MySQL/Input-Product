@@ -1,0 +1,21 @@
+USE technical_test;
+
+CREATE TABLE IF NOT EXISTS product (
+    `id` INT,
+    `name` VARCHAR(40) CHARACTER SET utf8,
+    `category_id` INT
+);
+
+INSERT INTO 
+    product
+VALUES
+    (1,'Filma Minyak Goreng',2),
+    (2,'Beras si Geulis',5),
+    (3,'Kapal Api SpecialMix',3),
+    (4,'Ladaku Merica Bubuk',3),
+    (5,'ABC Kecap Manis',5),
+    (6,'ABC Kopi Susu',3),
+    (7,'Beng-Beng Wafer',1),
+    (8,'Better Vanila',1),
+    (9,'Bihun Jagung Padamu',5),
+    (10,'Djarum Gold',4);
