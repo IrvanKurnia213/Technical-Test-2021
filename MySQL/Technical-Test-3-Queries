@@ -25,4 +25,5 @@ SELECT
     l.Sales_Lost,
     l.Sales_Lost/sa.Total_order_value AS Sales_Lost_Rate
 FROM loss_table l,sales_table sa
+GROUP BY 1
 ORDER BY 2 DESC

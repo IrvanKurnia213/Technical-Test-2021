@@ -1,0 +1,5 @@
+# Loading
+library("readxl")
+# xlsx files
+raw_data <- read_excel("Raw Data.xlsx")
+raw_data

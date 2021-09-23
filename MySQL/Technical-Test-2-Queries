@@ -14,3 +14,4 @@ GROUP BY 1,2
 SELECT * 
 FROM base_table
 WHERE Product_Sales_Value < AVG_Per_Category
+ORDER BY 1,3 DESC
